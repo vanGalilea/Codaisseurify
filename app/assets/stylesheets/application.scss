@@ -1,2 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background: linear-gradient(to right, #70e1f5, #ffd194);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+html {
+  height: 100%;
+}
+
+#nav1
+{
+    background-color:rgba(0, 0, 0, 0.7);
+    color: white;
+    font-weight: bold;
+}
