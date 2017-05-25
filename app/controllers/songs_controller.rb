@@ -1,10 +1,10 @@
 class SongsController < ApplicationController
   before_action :set_artist
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show]
 
   def index
-    @songs = Song.all
+    @songs = @artist.songs
   end
 
   def show
@@ -15,7 +15,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = @artist.songs.build(song_params)
+    @song = @artist.songs.create(song_params)
 
     if @song.save
       redirect_to artist_song_path(@artist, @song), notice: "Song successfully created"
@@ -50,6 +50,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-      params.require(:song).permit(:name, :url, :year_released, :artist_id)
+      params.require(:song).permit(:name, :url, :year_released)
     end
 end

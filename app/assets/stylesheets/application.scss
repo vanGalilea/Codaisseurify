@@ -24,7 +24,6 @@ html {
 
 .panel-primary .panel-heading, .panel-default .panel-heading  {
   background-color:rgba(0, 0, 0, 0.7);
-  outline-color: black;
   color: white;
 }
 
@@ -35,4 +34,13 @@ html {
 .glyphicon {
     font-size: 25px;
     padding: 7px;
+}
+
+img {
+  width: 25px;
+  height: 25px;
+}
+
+.btn {
+  background-color: red;
 }
