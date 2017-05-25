@@ -17,3 +17,13 @@ html {
     color: white;
     font-weight: bold;
 }
+
+.panel-primary, .panel-default{
+     background-color:rgba(0, 0, 0, 0.3);
+}
+
+.panel-primary .panel-heading, .panel-default .panel-heading  {
+  background-color:rgba(0, 0, 0, 0.7);
+  outline-color: black;
+  color: white;
+}

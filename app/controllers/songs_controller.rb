@@ -3,18 +3,18 @@ class SongsController < ApplicationController
   # before_action :authenticate_user!, except: [:show]
 
   def index
-    @songs = Songs.all
+    @songs = Song.all
   end
 
   def show
   end
 
   def new
-    @song = songs.build
+    @song = Song.new
   end
 
   def create
-    @song = songs.build(song_params)
+    @song = Song.new(song_params)
 
     if @song.save
       redirect_to @song, notice: "Song successfully created"

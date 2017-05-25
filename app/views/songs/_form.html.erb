@@ -1,0 +1,25 @@
+<%= form_for @song do |f| %>
+  <div class="form-group">
+    <label>Song Title</label>
+    <%= f.text_field :name, placeholder: "Song Title", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Year Released</label>
+    <%= f.number_field :year_released, placeholder: "Year Released", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>URL</label>
+    <%= f.text_field :url, placeholder: "Song URL", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Artist</label>
+    <%= f.collection_select(:artist_id, Artist.all, :id, :name, prompt: "Select the artist of this song") %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
