@@ -13,9 +13,10 @@
           <div class="col-md-7">
             <h4><%= song.name %></h4>
           </div>
-          <div class="col-md-3 right">
-            <%= link_to "View", song, class: "btn btn-default" %>
-            <%= link_to "Update", edit_song_path(song), class: "btn btn-default" %>
+          <div class="col-md-3">
+            <%= link_to "", artist_song_path(@artist,song), class: "glyphicon glyphicon-headphones" %>
+            <%= link_to "", edit_artist_song_path(@artist, song), class: "glyphicon glyphicon-pencil" %>
+            <%= link_to "", artist_song_path(@artist,song), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove" %>
           </div>
         </div>
         <% end %>
@@ -23,6 +24,6 @@
       </div>
     </div>
 
-    <%= link_to "Add new song", new_song_path, class: "btn btn-primary" %>
+    <%= link_to "Add new song", new_artist_song_path, class: "btn btn-primary" %>
   </div>
 </div>
