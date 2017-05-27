@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :artists do
     resources :albums do
       resources :songs do
-        resources :favourites, only: [:create]
+        resources :favourites, only: [:create, :new]
       end
     end
   end

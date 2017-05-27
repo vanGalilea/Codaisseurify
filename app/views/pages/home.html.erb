@@ -1,24 +1,29 @@
-<h1>Welcome to Codaisseurify</h1>
-<div class="row">
-  <div class="col-md-7">
-    <p>Ifyou would like to enjoy listening to music, please make sure you're signed-up
-
-      Geniet nu van de muziek.
-      Luister gratis.
-      Of ga Premium om on-demand te luisteren, waar je ook bent.
-
-      Spotify €0,00 /maand
-      Geniet van je favoriete albums en artiesten, met af en toe een advertentie.
-      NEEM SPOTIFY FREE
-      Spotify Premium €0,99 voor 3 maanden
-      Gezins- en studentenaanbiedingen beschikbaarDaarna slechts €9,99 per maand.
-      Luister on-demand.
-      Offline luisteren.
-      Geen advertenties.
-      Geluid van hoge kwaliteit.
-      SPOTIFY PREMIUM AANSCHAFFEN
-    </p>
-
+<% if !user_signed_in? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Welcome!
+    </div>
+    <div class="panel-body">
+      <%= render 'guest' %>
+    </div>
   </div>
-
-</div>
+<% elsif current_user.has_profile? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Welcome <%= current_user.full_name  %> !
+    </div>
+    <div class="panel-body">
+      <%= render 'profilefav' %>
+    </div>
+  </div>
+<% else %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Welcome Back !
+    </div>
+    <div class="panel-body">
+      <p>It's time to make a profile so you'll can enjoy our extra features we have to offer to you.</p>
+      <%= link_to "Create Profile", new_profile_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

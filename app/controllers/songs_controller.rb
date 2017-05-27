@@ -4,12 +4,6 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
 
-  def index
-  end
-
-  def show
-  end
-
   def new
     @song = @album.songs.build
   end
@@ -22,9 +16,6 @@ class SongsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update

@@ -1,0 +1,15 @@
+<%= form_for current_user.profile do |f| %>
+  <div class="form-group">
+
+  <label>Choose your favourites: </label>
+
+  <%= f.collection_check_boxes(:fav_songs, Song.all, :id, :name) do |b| %>
+  <div class="form-group">
+    <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+  </div>
+<% end %>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
