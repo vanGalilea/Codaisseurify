@@ -17,6 +17,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
 
     if @artist.save
+      image_params.each do |image|
+        @artist.photos.create(image: image)
+      end
+
       redirect_to @artist, notice: "Artist successfully created"
     else
       render :new
@@ -28,6 +32,10 @@ class ArtistsController < ApplicationController
 
   def update
     if @artist.update(artist_params)
+      image_params.each do |image|
+        @artist.photos.create(image: image)
+      end
+
       redirect_to @artist, notice: "Artist successfully updated"
     else
       render :edit
