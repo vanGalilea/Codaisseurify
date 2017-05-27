@@ -2,13 +2,12 @@
 @import "bootstrap";
 
 body {
-  background: linear-gradient(to right, #70e1f5, #ffd194);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: linear-gradient(to right, #70e1f5, #ffd194) no-repeat center center fixed;
 }
 
 html {
-  height: 100%;
+
+
 }
 
 #nav1
@@ -36,11 +35,16 @@ html {
     padding: 7px;
 }
 
-img {
+#nav1 img {
   width: 25px;
   height: 25px;
 }
 
 .btn {
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+artist_photo {
+  width: 25px;
+  height: 25px;
 }

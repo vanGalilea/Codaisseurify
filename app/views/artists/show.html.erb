@@ -4,25 +4,26 @@
   <div class="panel-body">
 
     <p>Description: <%= @artist.description %></p>
-    
-    <p>Photos: </p>
-    <% @artist.photos.each do |photo| %>
-      <%= image_tag photo.image %>
-    <% end %>
 
-    <p>Albums: </p>
-    <% @artist.albums.each do |album| %>
-      <div class="row">
-        <div class="col-md-7">
-          <%= album.name %>
-        </div>
-        <div class="col-md-3">
-          <%= link_to "", artist_album_path(@artist, album), class: "glyphicon glyphicon-music" %>
-          <%= link_to "", edit_artist_album_path(@artist, album), class: "glyphicon glyphicon-pencil" %>
-          <%= link_to "", artist_album_path(@artist, album), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove" %>
-        </div>
+    <div class="row">
+      <div class="col-md-4">
+        <% @artist.photos.each do |photo| %>
+                <%= image_tag photo.image.thumbnail, class: "thumbnail"%>
+        <% end %>
       </div>
+
+      <p>Album List: </p>
+      <% @artist.albums.each do |album| %>
+          <div class="col-md-5">
+            <strong> <%= album.name %> </strong>
+          </div>
+          <div class="col-md-3">
+            <%= link_to "", artist_album_path(@artist, album), class: "glyphicon glyphicon-music" %>
+            <%= link_to "", edit_artist_album_path(@artist, album), class: "glyphicon glyphicon-pencil" %>
+            <%= link_to "", artist_album_path(@artist, album), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove" %>
+          </div>
     <% end %>
+  </div>
 
   </div>
 </div>

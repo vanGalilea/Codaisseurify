@@ -55,4 +55,8 @@ class ArtistsController < ApplicationController
     def artist_params
       params.require(:artist).permit(:name, :description)
     end
+
+    def image_params
+      params[:images].present? ? params.require(:images) : []
+    end
 end

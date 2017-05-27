@@ -1,0 +1,10 @@
+<% if @artist.photos %>
+  <div class="row">
+    <% @artist.photos.each do |photo| %>
+      <div class="col-md-4">
+        <%= image_tag photo.image.thumbnail, class: "thumbnail" %>
+        <%= link_to "Delete", photo_path( photo.id ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
