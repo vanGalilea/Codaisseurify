@@ -4,10 +4,12 @@
   <div class="panel-body">
 
     <p>Description: <%= @artist.description %></p>
-    <p>Upcoming shows: </p>
+    <p>Albums: </p>
+    <% @artist.albums.each do |album| %>
+      <%= link_to album.name, artist_album_path(album) %>
+    <% end %>
 
   </div>
 </div>
 
-<%= link_to "Check the Songs of this artist", artist_songs_path(@artist), class: "btn btn-default" %>
 <%= link_to "Back", artists_path, class: "btn btn-default" %>
