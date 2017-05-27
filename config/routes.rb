@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :genres
   resources :artists do
     resources :albums do
       resources :songs
     end
   end
+
+  resources :profiles, only: [:new, :edit, :create, :update]
 
   devise_for :users
   root to: 'pages#home'
