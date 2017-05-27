@@ -10,11 +10,11 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = @artist.album.build
+    @album = @artist.albums.build
   end
 
   def create
-    @album = @artist.album.create(album_params)
+    @album = @artist.albums.create(album_params)
 
     if @album.save
       redirect_to artist_album_path(@artist, @album), notice: "Album successfully created"

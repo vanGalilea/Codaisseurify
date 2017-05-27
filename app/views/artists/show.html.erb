@@ -6,10 +6,20 @@
     <p>Description: <%= @artist.description %></p>
     <p>Albums: </p>
     <% @artist.albums.each do |album| %>
-      <%= link_to album.name, artist_album_path(album) %>
+      <div class="row">
+        <div class="col-md-7">
+          <%= album.name %>
+        </div>
+        <div class="col-md-3">
+          <%= link_to "", artist_album_path(@artist, album), class: "glyphicon glyphicon-music" %>
+          <%= link_to "", edit_artist_album_path(@artist, album), class: "glyphicon glyphicon-pencil" %>
+          <%= link_to "", artist_album_path(@artist, album), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove" %>
+        </div>
+      </div>
     <% end %>
 
   </div>
 </div>
 
-<%= link_to "Back", artists_path, class: "btn btn-default" %>
+<%= link_to "Back to Artists", artists_path, class: "btn btn-default" %>
+<%= link_to "Add new album", new_artist_album_path(@artist), class: "btn btn-primary" %>
