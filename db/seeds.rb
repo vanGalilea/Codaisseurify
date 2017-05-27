@@ -1,12 +1,7 @@
-User.destroy_all
-Profile.destroy_all
-Artist.destroy_all
-Album.destroy_all
-Song.destroy_all
-Genre.destroy_all
-Photo.destroy_all
 
 user = User.create!(email: "z.galili@icloud.com", password: "abcd1234")
+
+profile = Profile.create!(first_name: "Steve", last_name: "Galili", bio: "about me", user: user)
 
 photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/dqmqi1nxq/image/upload/v1495881541/1200px-Sigur_R_C3_B3s_2013_qoaulv.jpg")
 photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/dqmqi1nxq/image/upload/v1495881596/england-iceland-euro-2016-sigur-ros-quiz_c8ejij.jpg")
@@ -43,8 +38,11 @@ song2 = Song.create!(name: "Great Days", url:"https://w.soundcloud.com/player/?u
 
 artist3 = Artist.create!(name: "Foo Fighters", description: "and so on ans so on and so on", photos: [photo7, photo8, photo9])
 album3 = Album.create!(name: "The Greatest Hits", artist: artist3)
-song2 = Song.create!(name: "Everlong", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256067710&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false", year_released: 2010, album: album3, genres: [alternative, pop])
+song3 = Song.create!(name: "Everlong", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256067710&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false", year_released: 2010, album: album3, genres: [alternative, pop])
 
 artist4 = Artist.create!(name: "Radiohead", description: "Jazzy funky and so on ans so on and so on", photos: [photo10, photo11, photo12])
 album4 = Album.create!(name: "Rainbows", artist: artist4)
 song4 = Song.create!(name: "These Are My Twisted Words", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/291310911&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false", year_released: 2012, album: album4, genres: [alternative, classic])
+
+Favourite.create(song: song4, profile: profile)
+Favourite.create(song: song3, profile: profile)
