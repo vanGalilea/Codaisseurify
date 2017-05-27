@@ -5,7 +5,7 @@ class Song < ApplicationRecord
   has_many :profiles, through: :favourites, source: :profile
 
   validates :name, presence: true, length: {maximum: 50}
-  validates :name, uniqueness: {scope: :album}
+  validates :name, uniqueness: true
   validates :url, presence: true
 
 end

@@ -8,14 +8,13 @@
       <div class="row">
         <div class="col-md-10">
           <p>Title: <%= song.name %>
-          <p>Gnere(s):
+          <p>Genre(s):
             <% song.genres.each do |genre| %>
             <span class="label label-success"><%= genre.name %></span>
             <% end %>
           </p>
         </div>
         <div class="col-md-2">
-          <%= link_to "add to fav.", new_artist_album_song_favourite_path(@artist, @album, song) %>
           <%= link_to "", edit_artist_album_song_path(@artist, @album, song), class: "glyphicon glyphicon-pencil" %>
           <%= link_to "", artist_album_song_path(@artist, @album, song), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove" %>
         </div>

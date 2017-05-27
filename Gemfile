@@ -26,6 +26,7 @@ group :development, :test do
   gem 'capybara', '~> 2.9', '>= 2.9.1'
   gem 'factory_girl_rails', '4.7.0'
   gem 'faker', '1.6.6'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
