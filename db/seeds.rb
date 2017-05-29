@@ -1,5 +1,5 @@
 
-user = User.create!(email: "z.galili@icloud.com", password: "abcd1234")
+user = User.create!(email: "user@user.com", password: "abcd1234")
 
 profile = Profile.create!(first_name: "Steve", last_name: "Galili", bio: "about me", user: user)
 
