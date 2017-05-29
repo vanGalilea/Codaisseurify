@@ -2,6 +2,7 @@
   <div class="col-md-9">
     <% current_user.profile.fav_songs.each do |song| %>
       <h4><%= song.name %></h4>
+      <%= link_to "", favourite_path(song), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove-circle" %>
       <iframe width="100%" height="166" scrolling="no" frameborder="no" src= <%= song.url %> ></iframe>
     <% end %>
   </div>
