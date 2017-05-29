@@ -1,4 +1,12 @@
-<p>These are your favourite songs:</p>
+<div class="row">
+  <div class="col-md-10">
+    <strong>These are your favourite songs:</strong>
+  </div>
+  <div class="col-md-2">
+    <%= link_to "Explore All Music", artists_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
 <% current_user.profile.fav_songs.each do |song| %>
   <div class="row">
     <div class="col-md-10">
