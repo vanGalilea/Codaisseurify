@@ -9,20 +9,13 @@ class FavouritesController < ApplicationController
   end
 
   def destroy
-    @favourite = Favourite.find(song_id: @song.id)
+    @favourite = Favourite.find_by(song_id: @song.id)
     @favourite.destroy
     redirect_to root_path, notice: "Song deleted from your Fav. list!"
   end
 
   private
-    # def favourite_params
-    #   params.require(:favourite).permit(:profile_id, :song_id)
-    # end
-
     def set_song
-      @song = Song.find(params[:song_id])
+      @song = Song.find(params[:id])
     end
 end
-
-
-# dit werkt helaas nog niet
