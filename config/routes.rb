@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :artists do
     resources :albums do
+      delete "/destroy_all", to: "songs#destroy_all", as: :songs_destroy_all
       resources :songs  do
         resources :favourites, only: [:new]
       end

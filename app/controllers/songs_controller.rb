@@ -10,9 +10,11 @@ class SongsController < ApplicationController
 
   def create
     @song = @album.songs.create(song_params)
-
-    if @song.save
-      redirect_to artist_album_path(@artist, @album), notice: "Song successfully created"
+    if @song.save!
+      respond_to do |format|
+        format.html { redirect_to artist_album_path(@artist, @album), notice: "Song successfully created" }
+        format.js
+      end
     else
       render :new
     end
@@ -27,8 +29,21 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    @song.destroy
-    redirect_to artist_album_path(@artist, @album), notice: "Song successfully deleted"
+    @song.destroy!
+    @songs = @album.songs
+    respond_to do |format|
+      format.html { redirect_to artist_album_path(@artist, @album), notice: "Song successfully deleted" }
+      format.js
+    end
+  end
+
+  def destroy_all
+    @album.songs.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to artist_album_path(@artist, @album), notice: "All songs successfully deleted" }
+      format.js
+    end
   end
 
   private

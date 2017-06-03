@@ -1,0 +1,5 @@
+$("#songs").append("<%= j render @song, album: @album, artist: @artist %>");
+$("#song-title").val(null);
+$("#song-year").val(null);
+$("#song-url").val(null);
+$("input:checkbox").attr('checked', false);
