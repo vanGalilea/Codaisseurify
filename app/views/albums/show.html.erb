@@ -18,5 +18,17 @@
 
 
 <%= link_to "Back to Albums", artist_path(@artist), class: "btn btn-default" %>
-<%= link_to "Add Song to Album", new_artist_album_song_path(@artist, @album), class: "btn btn-default" %>
 <%= link_to "Delete All Songs", artist_album_songs_destroy_all_path(@artist, @album), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+
+<br>
+<br>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Add a new song
+  </div>
+
+  <div class="panel-body">
+    <%= render "songs/form", artist: @artist, album: @album, song: @album.songs.build %>
+  </div>
+</div>

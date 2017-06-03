@@ -1,8 +1,8 @@
-<%= form_for [@artist, @album ,@song], remote: true do |f| %>
+<%= form_for [artist, album , song], remote: true do |f| %>
   <ul id="errors"></ul>
   <div class="form-group">
     <label>Song Title</label>
-    <%= f.text_field :name, placeholder: "Song Title", class: "form-control", id: "song-title", data: { album_id: @album.id, artist_id: @artist.id } %>
+    <%= f.text_field :name, placeholder: "Song Title", class: "form-control", id: "song-title", data: { album_id: album.id, artist_id: artist.id } %>
   </div>
 
   <div class="form-group">
