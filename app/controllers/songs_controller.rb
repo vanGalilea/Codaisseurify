@@ -12,9 +12,14 @@ class SongsController < ApplicationController
     @song = @album.songs.create(song_params)
 
     if @song.save
-      redirect_to artist_album_path(@artist, @album), notice: "Song successfully created"
+      render status: 200, json: {
+        message: "Song successfully created",
+        song: song
+      }.to_json
     else
-      render :new
+      render status: 422, json: {
+        error: song.errors.full_messages
+      }.to_json
     end
   end
 
@@ -27,8 +32,12 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    @song.destroy
-    redirect_to artist_album_path(@artist, @album), notice: "Song successfully deleted"
+    @song.destroy!
+    @songs = @album.songs
+    respond_to do |format|
+      format.html { redirect_to artist_album_path(@artist, @album), notice: "Song successfully deleted" }
+      format.js
+    end
   end
 
   private

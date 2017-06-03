@@ -19,7 +19,7 @@
             <%= link_to "", new_artist_album_song_favourite_path(@artist, @album, song), class: "glyphicon glyphicon-ok-circle" %>
           <% end %>
           <%= link_to "", edit_artist_album_song_path(@artist, @album, song), class: "glyphicon glyphicon-pencil" %>
-          <%= link_to "", artist_album_song_path(@artist, @album, song), method: :delete, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove" %>
+          <%= link_to "", artist_album_song_path(@artist, @album, song), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove", id="song-<%= song.id %>" %>
         </div>
       </div>
       <iframe width="100%" height="166" scrolling="no" frameborder="no" src= <%= song.url%> ></iframe>
