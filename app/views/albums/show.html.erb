@@ -3,11 +3,20 @@
 
   <div class="panel-body">
     <div id="songs">
-      <p>Songs:</p>
-      <%= render @album.songs, album: @album %>
+      <% if @album.songs.count > 0 %>
+        <p>Songs:</p>
+        <%= render @album.songs, album: @album %>
+      <% else %>
+        <p>
+          It looks like this album has no songs yet, or songs have been deleted... <br><br>
+          Click on the button bellow in order to add a song related to the album <%= @album.name %>
+          of the artist <%= @album.artist.name %> </p>
+      <% end %>
     </div>
   </div>
 </div>
 
+
 <%= link_to "Back to Albums", artist_path(@artist), class: "btn btn-default" %>
 <%= link_to "Add Song to Album", new_artist_album_song_path(@artist, @album), class: "btn btn-default" %>
+<%= link_to "Delete All Songs", artist_album_songs_destroy_all_path(@artist, @album), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
