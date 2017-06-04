@@ -12,7 +12,7 @@
       <% if current_user.has_profile? %>
         <%= link_to "", new_artist_album_song_favourite_path(@artist, @album, song), class: "glyphicon glyphicon-ok-circle" %>
       <% end %>
-      <%= link_to "", edit_artist_album_song_path(@artist, @album, song), class: "glyphicon glyphicon-pencil" %>
+      <%= link_to "", edit_artist_album_song_path(@artist, @album, song), class: "glyphicon glyphicon-pencil", id: "edit_song" %>
       <%= link_to "", artist_album_song_path(@artist, @album, song), method: :delete, remote: true, class: "glyphicon glyphicon-remove", id: "delete_song" %>
     </div>
   </div>

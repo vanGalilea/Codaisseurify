@@ -1,1 +1,4 @@
 $("#songs").html("<%= j render @songs, album: @album %>");
+if ($('#songs').is(':empty')){
+  $("#songs").html("<p>It looks like this album has no songs yet, or songs have been deleted... <br><br> Click on the button bellow in order to add a song related to the album <%= @album.name %> of the artist <%= @album.artist.name %> </p>");
+}
