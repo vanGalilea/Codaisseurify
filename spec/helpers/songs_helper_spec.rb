@@ -11,6 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SongsHelper, type: :helper do
-  def wait_for_ajax
 
 end
