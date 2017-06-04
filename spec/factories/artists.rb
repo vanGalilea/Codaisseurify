@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :artist do
-    name            { Faker::Lorem.charachters(15) }
+    name            { Faker::RockBand.name }
     description     { Faker::Lorem.paragraph(2) }
   end
 end
