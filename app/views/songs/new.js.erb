@@ -1,2 +1,3 @@
 $('#add_song_button').after('<%= j render "form", artist: @artist, album: @album, song: @album.songs.build %>');
 $('#add_song_button').hide();
+$('html, body').animate({scrollTop:$(document).height()}, 'slow');

@@ -1,4 +1,4 @@
-$('#form_song').hide();
+$('#form_song').slideUp();
 $('p').empty();
 $("#songs").append("<%= j render @song, album: @album, artist: @artist %>");
 $('#add_song_button').show();
