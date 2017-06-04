@@ -11,5 +11,6 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SongsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  def wait_for_ajax
+
 end
