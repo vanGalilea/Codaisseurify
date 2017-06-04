@@ -5,7 +5,7 @@ Codaisseurify is an assignment that I got during my studies at Codaisseur Academ
 Codaisseurify is a sort Spotify with options to listen to music and CRUD functionalities with Artists, Albums and Songs.
 
 
-Link to the deployed app: http://codaisseurify-steve.codaisseur.cloud/
+Link to the deployed app:
 
 IMPORTANT:
 
